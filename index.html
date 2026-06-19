@@ -19,8 +19,12 @@
       </p>
 
       <p>
-        Para finalizar o desafio, você precisa conseguir
-        <strong>20 acertos</strong>.
+        Cada aluno responderá <strong>20 questões</strong>. Cada questão permite até
+        <strong>2 tentativas</strong>.
+      </p>
+
+      <p>
+        Será contado no máximo <strong>1 erro por questão</strong>.
       </p>
 
       <label for="nomeAluno">Digite seu nome:</label>
@@ -28,13 +32,18 @@
 
       <button onclick="iniciarJogo()">Iniciar atividade</button>
 
-      <a href="ranking.html" class="link-ranking">Ver ranking dos alunos</a>
+      <a href="ranking.html" class="botao-ranking">
+        🏆 Ver ranking dos alunos
+      </a>
     </section>
 
     <section id="tela-jogo" class="card escondido">
       <div class="topo-jogo">
         <p><strong>Aluno:</strong> <span id="nomeNaTela"></span></p>
-        <p><strong>Acertos:</strong> <span id="acertos">0</span>/20</p>
+        <p><strong>Acertos:</strong> <span id="acertos">0</span></p>
+        <p><strong>Erros:</strong> <span id="erros">0</span></p>
+        <p><strong>Questão:</strong> <span id="progresso">1/20</span></p>
+        <p><strong>Tentativa:</strong> <span id="tentativa">1/2</span></p>
       </div>
 
       <h2 id="tituloQuestao"></h2>
@@ -46,7 +55,7 @@
       <label for="respostaAluno">Digite a condição do while:</label>
       <input type="text" id="respostaAluno" placeholder="Ex: contador <= 10">
 
-      <button onclick="verificarResposta()">Verificar</button>
+      <button id="btnVerificar" onclick="verificarResposta()">Verificar</button>
 
       <p id="mensagem"></p>
     </section>
@@ -56,7 +65,7 @@
       <h2 id="mensagemFinal"></h2>
 
       <p>
-        Você conseguiu 20 acertos e finalizou o treinamento de condições do while.
+        Você finalizou as 20 questões do treinamento de condições do while.
       </p>
 
       <div class="botoes-final">
