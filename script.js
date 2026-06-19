@@ -1,6 +1,8 @@
 let perguntas = [];
+let perguntasSorteadas = [];
 let perguntaAtual = 0;
 let acertos = 0;
+let erros = 0;
 let nomeAluno = "";
 
 // Carrega as perguntas do arquivo JSON
@@ -28,21 +30,37 @@ function iniciarJogo() {
     return;
   }
 
+  acertos = 0;
+  erros = 0;
+  perguntaAtual = 0;
+
+  document.getElementById("acertos").textContent = acertos;
+  document.getElementById("nomeNaTela").textContent = nomeAluno;
+
+  perguntasSorteadas = sortearPerguntas(perguntas);
+
   document.getElementById("tela-inicial").classList.add("escondido");
   document.getElementById("tela-jogo").classList.remove("escondido");
 
-  document.getElementById("nomeNaTela").textContent = nomeAluno;
-
-  embaralharPerguntas();
   mostrarPergunta();
 }
 
-function embaralharPerguntas() {
-  perguntas.sort(() => Math.random() - 0.5);
+function sortearPerguntas(lista) {
+  let novaLista = [...lista];
+
+  for (let i = novaLista.length - 1; i > 0; i--) {
+    let sorteado = Math.floor(Math.random() * (i + 1));
+
+    let temporario = novaLista[i];
+    novaLista[i] = novaLista[sorteado];
+    novaLista[sorteado] = temporario;
+  }
+
+  return novaLista;
 }
 
 function mostrarPergunta() {
-  const questao = perguntas[perguntaAtual];
+  const questao = perguntasSorteadas[perguntaAtual];
 
   document.getElementById("tituloQuestao").textContent = `Questão ${perguntaAtual + 1}`;
   document.getElementById("enunciado").textContent = questao.enunciado;
@@ -56,13 +74,17 @@ function mostrarPergunta() {
 }
 
 function verificarResposta() {
-  const respostaAluno = normalizarResposta(
-    document.getElementById("respostaAluno").value
-  );
+  const inputResposta = document.getElementById("respostaAluno");
+  const respostaAluno = normalizarResposta(inputResposta.value);
 
-  const questao = perguntas[perguntaAtual];
+  if (respostaAluno === "") {
+    alert("Digite uma condição antes de verificar.");
+    return;
+  }
 
-  const respostasCorretas = questao.respostas.map(resposta => 
+  const questao = perguntasSorteadas[perguntaAtual];
+
+  const respostasCorretas = questao.respostas.map(resposta =>
     normalizarResposta(resposta)
   );
 
@@ -77,6 +99,7 @@ function verificarResposta() {
     mensagem.className = "correto";
 
     if (acertos >= 20) {
+      salvarRanking();
       setTimeout(finalizarJogo, 1000);
       return;
     }
@@ -84,6 +107,8 @@ function verificarResposta() {
     setTimeout(proximaPergunta, 1000);
 
   } else {
+    erros++;
+
     mensagem.textContent = "Ainda não. Observe a variável, o valor inicial e até quando o laço deve repetir.";
     mensagem.className = "errado";
   }
@@ -92,9 +117,9 @@ function verificarResposta() {
 function proximaPergunta() {
   perguntaAtual++;
 
-  if (perguntaAtual >= perguntas.length) {
+  if (perguntaAtual >= perguntasSorteadas.length) {
     perguntaAtual = 0;
-    embaralharPerguntas();
+    perguntasSorteadas = sortearPerguntas(perguntas);
   }
 
   mostrarPergunta();
@@ -108,6 +133,35 @@ function normalizarResposta(texto) {
     .toLowerCase();
 }
 
+function salvarRanking() {
+  const rankingSalvo = localStorage.getItem("rankingWhile");
+
+  let ranking = [];
+
+  if (rankingSalvo !== null) {
+    ranking = JSON.parse(rankingSalvo);
+  }
+
+  const aluno = {
+    nome: nomeAluno,
+    acertos: acertos,
+    erros: erros,
+    data: new Date().toLocaleString("pt-BR")
+  };
+
+  ranking.push(aluno);
+
+  ranking.sort((a, b) => {
+    if (b.acertos !== a.acertos) {
+      return b.acertos - a.acertos;
+    }
+
+    return a.erros - b.erros;
+  });
+
+  localStorage.setItem("rankingWhile", JSON.stringify(ranking));
+}
+
 function finalizarJogo() {
   document.getElementById("tela-jogo").classList.add("escondido");
   document.getElementById("tela-final").classList.remove("escondido");
@@ -119,7 +173,9 @@ function finalizarJogo() {
 function reiniciar() {
   perguntaAtual = 0;
   acertos = 0;
+  erros = 0;
   nomeAluno = "";
+  perguntasSorteadas = [];
 
   document.getElementById("acertos").textContent = "0";
   document.getElementById("nomeAluno").value = "";

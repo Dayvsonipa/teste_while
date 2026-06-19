@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking - Treino de While</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <section class="card">
+      <h1>🏆 Ranking dos Alunos</h1>
+
+      <p>
+        Esta página mostra os alunos que conseguiram finalizar o desafio com 20 acertos.
+      </p>
+
+      <table class="tabela-ranking">
+        <thead>
+          <tr>
+            <th>Posição</th>
+            <th>Aluno</th>
+            <th>Acertos</th>
+            <th>Erros</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+
+        <tbody id="corpoRanking">
+        </tbody>
+      </table>
+
+      <p id="mensagemRanking"></p>
+
+      <div class="botoes-final">
+        <a href="index.html" class="botao-link">Voltar para o jogo</a>
+        <button onclick="limparRanking()" class="botao-perigo">Limpar ranking</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    carregarRanking();
+
+    function carregarRanking() {
+      const corpoRanking = document.getElementById("corpoRanking");
+      const mensagemRanking = document.getElementById("mensagemRanking");
+
+      const rankingSalvo = localStorage.getItem("rankingWhile");
+
+      if (rankingSalvo === null) {
+        mensagemRanking.textContent = "Ainda não há alunos no ranking.";
+        return;
+      }
+
+      let ranking = JSON.parse(rankingSalvo);
+
+      if (ranking.length === 0) {
+        mensagemRanking.textContent = "Ainda não há alunos no ranking.";
+        return;
+      }
+
+      ranking.sort((a, b) => {
+        if (b.acertos !== a.acertos) {
+          return b.acertos - a.acertos;
+        }
+
+        return a.erros - b.erros;
+      });
+
+      corpoRanking.innerHTML = "";
+
+      ranking.forEach((aluno, indice) => {
+        const linha = document.createElement("tr");
+
+        linha.innerHTML = `
+          <td>${indice + 1}º</td>
+          <td>${aluno.nome}</td>
+          <td>${aluno.acertos}</td>
+          <td>${aluno.erros}</td>
+          <td>${aluno.data}</td>
+        `;
+
+        corpoRanking.appendChild(linha);
+      });
+    }
+
+    function limparRanking() {
+      const confirmar = confirm("Tem certeza que deseja apagar todo o ranking?");
+
+      if (confirmar) {
+        localStorage.removeItem("rankingWhile");
+        location.reload();
+      }
+    }
+  </script>
+
+</body>
+</html>

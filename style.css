@@ -17,7 +17,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 850px;
+  max-width: 900px;
 }
 
 .card {
@@ -111,4 +111,102 @@ pre {
 
 .escondido {
   display: none;
+}
+
+.link-ranking {
+  display: inline-block;
+  margin-top: 18px;
+  color: #2563eb;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.link-ranking:hover {
+  text-decoration: underline;
+}
+
+.botoes-final {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.botao-link {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.botao-link:hover {
+  background-color: #15803d;
+}
+
+.botao-perigo {
+  background-color: #dc2626;
+}
+
+.botao-perigo:hover {
+  background-color: #b91c1c;
+}
+
+.tabela-ranking {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.tabela-ranking th {
+  background-color: #0f172a;
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.tabela-ranking td {
+  padding: 14px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.tabela-ranking tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.tabela-ranking tr:hover {
+  background-color: #e0f2fe;
+}
+
+#mensagemRanking {
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+@media (max-width: 650px) {
+  .card {
+    padding: 20px;
+  }
+
+  .topo-jogo {
+    flex-direction: column;
+  }
+
+  .tabela-ranking {
+    font-size: 14px;
+  }
+
+  .tabela-ranking th,
+  .tabela-ranking td {
+    padding: 8px;
+  }
 }

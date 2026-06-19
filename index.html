@@ -18,10 +18,17 @@
         <strong>while</strong>.
       </p>
 
+      <p>
+        Para finalizar o desafio, você precisa conseguir
+        <strong>20 acertos</strong>.
+      </p>
+
       <label for="nomeAluno">Digite seu nome:</label>
       <input type="text" id="nomeAluno" placeholder="Ex: Maria">
 
       <button onclick="iniciarJogo()">Iniciar atividade</button>
+
+      <a href="ranking.html" class="link-ranking">Ver ranking dos alunos</a>
     </section>
 
     <section id="tela-jogo" class="card escondido">
@@ -52,7 +59,10 @@
         Você conseguiu 20 acertos e finalizou o treinamento de condições do while.
       </p>
 
-      <button onclick="reiniciar()">Jogar novamente</button>
+      <div class="botoes-final">
+        <button onclick="reiniciar()">Jogar novamente</button>
+        <a href="ranking.html" class="botao-link">Ver ranking</a>
+      </div>
     </section>
 
   </main>
