@@ -70,17 +70,13 @@
     ]
   },
   {
-    "enunciado": "Complete a condição para repetir enquanto a senha estiver errada.",
+    "enunciado": "Complete a condição para repetir enquanto a senha estiver errada. A senha correta é 1234",
     "codigo": "let senha = prompt('Digite a senha');\n\nwhile ( __________ ) {\n  senha = prompt('Senha errada. Digite novamente');\n}\n\nconsole.log('Acesso permitido');",
     "respostas": [
-      "senha != '1234'",
-      "senha!='1234'",
-      "senha !== '1234'",
-      "senha!=='1234'",
-      "senha != \"1234\"",
-      "senha!=\"1234\"",
-      "senha !== \"1234\"",
-      "senha!==\"1234\""
+      "senha != 1234",
+      "senha!=1234",
+      "senha !== 1234",
+      "senha!==1234"
     ]
   },
   {
