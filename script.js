@@ -102,6 +102,7 @@ function proximaPergunta() {
 
 function normalizarResposta(texto) {
   return texto
+    .trim()
     .replace(/\s+/g, "")
     .replace(/;/g, "")
     .toLowerCase();
