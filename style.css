@@ -17,7 +17,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 950px;
 }
 
 .card {
@@ -75,6 +75,11 @@ button:hover {
   background-color: #1d4ed8;
 }
 
+button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
 pre {
   background-color: #0f172a;
   color: #e5e7eb;
@@ -88,11 +93,16 @@ pre {
 .topo-jogo {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px;
   background-color: #f2f4f7;
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.topo-jogo p {
+  margin-bottom: 0;
 }
 
 #mensagem {
@@ -113,16 +123,27 @@ pre {
   display: none;
 }
 
-.link-ranking {
+.botao-ranking {
   display: inline-block;
-  margin-top: 18px;
-  color: #2563eb;
+  width: 100%;
+  margin-top: 16px;
+  padding: 14px 22px;
+  background-color: #f8fafc;
+  color: #0f172a;
+  border: 2px solid #d0d5dd;
+  border-radius: 10px;
+  font-size: 17px;
   font-weight: bold;
+  text-align: center;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-.link-ranking:hover {
-  text-decoration: underline;
+.botao-ranking:hover {
+  background-color: #e0f2fe;
+  border-color: #2563eb;
+  color: #1d4ed8;
+  transform: translateY(-2px);
 }
 
 .botoes-final {

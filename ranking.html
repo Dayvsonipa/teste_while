@@ -14,7 +14,7 @@
       <h1>🏆 Ranking dos Alunos</h1>
 
       <p>
-        Esta página mostra os alunos que conseguiram finalizar o desafio com 20 acertos.
+        Esta página mostra o desempenho dos alunos que finalizaram as 20 questões.
       </p>
 
       <table class="tabela-ranking">
@@ -24,6 +24,7 @@
             <th>Aluno</th>
             <th>Acertos</th>
             <th>Erros</th>
+            <th>Total</th>
             <th>Data</th>
           </tr>
         </thead>
@@ -36,7 +37,7 @@
 
       <div class="botoes-final">
         <a href="index.html" class="botao-link">Voltar para o jogo</a>
-        <!--<button onclick="limparRanking()" class="botao-perigo">Limpar ranking</button>-->
+        <button onclick="limparRanking()" class="botao-perigo">Limpar ranking</button>
       </div>
     </section>
 
@@ -81,6 +82,7 @@
           <td>${aluno.nome}</td>
           <td>${aluno.acertos}</td>
           <td>${aluno.erros}</td>
+          <td>${aluno.totalQuestoes || 20}</td>
           <td>${aluno.data}</td>
         `;
 

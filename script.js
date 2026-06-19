@@ -3,7 +3,10 @@ let perguntasSorteadas = [];
 let perguntaAtual = 0;
 let acertos = 0;
 let erros = 0;
+let tentativasNaQuestao = 0;
 let nomeAluno = "";
+
+const TOTAL_QUESTOES_DO_JOGO = 20;
 
 // Carrega as perguntas do arquivo JSON
 fetch("perguntas.json")
@@ -30,14 +33,21 @@ function iniciarJogo() {
     return;
   }
 
+  if (perguntas.length < TOTAL_QUESTOES_DO_JOGO) {
+    alert("O arquivo perguntas.json precisa ter pelo menos 20 questões.");
+    return;
+  }
+
   acertos = 0;
   erros = 0;
   perguntaAtual = 0;
+  tentativasNaQuestao = 0;
+
+  perguntasSorteadas = sortearPerguntas(perguntas).slice(0, TOTAL_QUESTOES_DO_JOGO);
 
   document.getElementById("acertos").textContent = acertos;
+  document.getElementById("erros").textContent = erros;
   document.getElementById("nomeNaTela").textContent = nomeAluno;
-
-  perguntasSorteadas = sortearPerguntas(perguntas);
 
   document.getElementById("tela-inicial").classList.add("escondido");
   document.getElementById("tela-jogo").classList.remove("escondido");
@@ -62,19 +72,30 @@ function sortearPerguntas(lista) {
 function mostrarPergunta() {
   const questao = perguntasSorteadas[perguntaAtual];
 
+  tentativasNaQuestao = 0;
+
   document.getElementById("tituloQuestao").textContent = `Questão ${perguntaAtual + 1}`;
   document.getElementById("enunciado").textContent = questao.enunciado;
   document.getElementById("codigo").textContent = questao.codigo;
+
+  document.getElementById("acertos").textContent = acertos;
+  document.getElementById("erros").textContent = erros;
+  document.getElementById("progresso").textContent =
+    `${perguntaAtual + 1}/${TOTAL_QUESTOES_DO_JOGO}`;
+  document.getElementById("tentativa").textContent = "1/2";
 
   document.getElementById("respostaAluno").value = "";
   document.getElementById("mensagem").textContent = "";
   document.getElementById("mensagem").className = "";
 
+  document.getElementById("btnVerificar").disabled = false;
+  document.getElementById("respostaAluno").disabled = false;
   document.getElementById("respostaAluno").focus();
 }
 
 function verificarResposta() {
   const inputResposta = document.getElementById("respostaAluno");
+  const botaoVerificar = document.getElementById("btnVerificar");
   const respostaAluno = normalizarResposta(inputResposta.value);
 
   if (respostaAluno === "") {
@@ -98,28 +119,46 @@ function verificarResposta() {
     mensagem.textContent = "Correto! Muito bem.";
     mensagem.className = "correto";
 
-    if (acertos >= 20) {
-      salvarRanking();
-      setTimeout(finalizarJogo, 1000);
-      return;
-    }
+    botaoVerificar.disabled = true;
+    inputResposta.disabled = true;
 
     setTimeout(proximaPergunta, 1000);
-
-  } else {
-    erros++;
-
-    mensagem.textContent = "Ainda não. Observe a variável, o valor inicial e até quando o laço deve repetir.";
-    mensagem.className = "errado";
+    return;
   }
+
+  tentativasNaQuestao++;
+
+  if (tentativasNaQuestao === 1) {
+    mensagem.textContent = "Ainda não. Você tem mais uma tentativa nesta questão.";
+    mensagem.className = "errado";
+
+    document.getElementById("tentativa").textContent = "2/2";
+
+    inputResposta.value = "";
+    inputResposta.focus();
+    return;
+  }
+
+  erros++;
+
+  document.getElementById("erros").textContent = erros;
+
+  mensagem.textContent = "Resposta incorreta. Será contado 1 erro nesta questão. Vamos para a próxima.";
+  mensagem.className = "errado";
+
+  botaoVerificar.disabled = true;
+  inputResposta.disabled = true;
+
+  setTimeout(proximaPergunta, 1500);
 }
 
 function proximaPergunta() {
   perguntaAtual++;
 
-  if (perguntaAtual >= perguntasSorteadas.length) {
-    perguntaAtual = 0;
-    perguntasSorteadas = sortearPerguntas(perguntas);
+  if (perguntaAtual >= TOTAL_QUESTOES_DO_JOGO) {
+    salvarRanking();
+    finalizarJogo();
+    return;
   }
 
   mostrarPergunta();
@@ -146,6 +185,7 @@ function salvarRanking() {
     nome: nomeAluno,
     acertos: acertos,
     erros: erros,
+    totalQuestoes: TOTAL_QUESTOES_DO_JOGO,
     data: new Date().toLocaleString("pt-BR")
   };
 
@@ -167,18 +207,22 @@ function finalizarJogo() {
   document.getElementById("tela-final").classList.remove("escondido");
 
   document.getElementById("mensagemFinal").textContent =
-    `Congratulations, ${nomeAluno}!`;
+    `Congratulations, ${nomeAluno}! Você fez ${acertos} acertos de ${TOTAL_QUESTOES_DO_JOGO}.`;
 }
 
 function reiniciar() {
   perguntaAtual = 0;
   acertos = 0;
   erros = 0;
+  tentativasNaQuestao = 0;
   nomeAluno = "";
   perguntasSorteadas = [];
 
   document.getElementById("acertos").textContent = "0";
+  document.getElementById("erros").textContent = "0";
   document.getElementById("nomeAluno").value = "";
+  document.getElementById("progresso").textContent = "1/20";
+  document.getElementById("tentativa").textContent = "1/2";
 
   document.getElementById("tela-final").classList.add("escondido");
   document.getElementById("tela-inicial").classList.remove("escondido");
