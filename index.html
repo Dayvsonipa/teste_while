@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treino de While</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="container">
+
+    <section id="tela-inicial" class="card">
+      <h1>Treino de Condições do While</h1>
+
+      <p>
+        Nesta atividade, você deverá completar apenas a condição do comando
+        <strong>while</strong>.
+      </p>
+
+      <label for="nomeAluno">Digite seu nome:</label>
+      <input type="text" id="nomeAluno" placeholder="Ex: Maria">
+
+      <button onclick="iniciarJogo()">Iniciar atividade</button>
+    </section>
+
+    <section id="tela-jogo" class="card escondido">
+      <div class="topo-jogo">
+        <p><strong>Aluno:</strong> <span id="nomeNaTela"></span></p>
+        <p><strong>Acertos:</strong> <span id="acertos">0</span>/20</p>
+      </div>
+
+      <h2 id="tituloQuestao"></h2>
+
+      <p id="enunciado"></p>
+
+      <pre><code id="codigo"></code></pre>
+
+      <label for="respostaAluno">Digite a condição do while:</label>
+      <input type="text" id="respostaAluno" placeholder="Ex: contador <= 10">
+
+      <button onclick="verificarResposta()">Verificar</button>
+
+      <p id="mensagem"></p>
+    </section>
+
+    <section id="tela-final" class="card escondido">
+      <h1>🎉 Congratulations!</h1>
+      <h2 id="mensagemFinal"></h2>
+
+      <p>
+        Você conseguiu 20 acertos e finalizou o treinamento de condições do while.
+      </p>
+
+      <button onclick="reiniciar()">Jogar novamente</button>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #101828, #1d2939);
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+}
+
+.card {
+  background-color: #ffffff;
+  color: #101828;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  border: 2px solid #d0d5dd;
+  border-radius: 10px;
+  outline: none;
+}
+
+input:focus {
+  border-color: #2563eb;
+}
+
+button {
+  margin-top: 20px;
+  padding: 14px 22px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+}
+
+pre {
+  background-color: #0f172a;
+  color: #e5e7eb;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-size: 17px;
+}
+
+.topo-jogo {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  background-color: #f2f4f7;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+#mensagem {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.correto {
+  color: #15803d;
+}
+
+.errado {
+  color: #b91c1c;
+}
+
+.escondido {
+  display: none;
+}
