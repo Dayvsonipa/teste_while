@@ -1,7 +1,7 @@
 [
   {
     "enunciado": "Complete a condição para exibir os números de 1 até 10.",
-    "codigo": "let numero = 1;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 1;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 10",
       "numero<=10",
@@ -11,7 +11,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 0 até 5.",
-    "codigo": "let contador = 0;\n\nwhile ( __________ ) {\n  console.log(contador);\n  contador++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int contador = 0;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", contador);\n        contador++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "contador <= 5",
       "contador<=5",
@@ -21,7 +21,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 10 até 1.",
-    "codigo": "let numero = 10;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 10;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero >= 1",
       "numero>=1",
@@ -31,7 +31,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números pares de 2 até 20.",
-    "codigo": "let par = 2;\n\nwhile ( __________ ) {\n  console.log(par);\n  par += 2;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int par = 2;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", par);\n        par += 2;\n    }\n\n    return 0;\n}",
     "respostas": [
       "par <= 20",
       "par<=20",
@@ -41,7 +41,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números ímpares de 1 até 15.",
-    "codigo": "let impar = 1;\n\nwhile ( __________ ) {\n  console.log(impar);\n  impar += 2;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int impar = 1;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", impar);\n        impar += 2;\n    }\n\n    return 0;\n}",
     "respostas": [
       "impar <= 15",
       "impar<=15",
@@ -51,7 +51,7 @@
   },
   {
     "enunciado": "Complete a condição para somar os números de 1 até 5.",
-    "codigo": "let numero = 1;\nlet soma = 0;\n\nwhile ( __________ ) {\n  soma += numero;\n  numero++;\n}\n\nconsole.log(soma);",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 1;\n    int soma = 0;\n\n    while ( __________ ) {\n        soma += numero;\n        numero++;\n    }\n\n    printf(\"Soma: %d\\n\", soma);\n\n    return 0;\n}",
     "respostas": [
       "numero <= 5",
       "numero<=5",
@@ -61,7 +61,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir a tabuada do 7 de 1 até 10.",
-    "codigo": "let contador = 1;\n\nwhile ( __________ ) {\n  console.log(7 * contador);\n  contador++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int contador = 1;\n\n    while ( __________ ) {\n        printf(\"7 x %d = %d\\n\", contador, 7 * contador);\n        contador++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "contador <= 10",
       "contador<=10",
@@ -70,18 +70,18 @@
     ]
   },
   {
-    "enunciado": "Complete a condição para repetir enquanto a senha estiver errada. A senha correta é 1234",
-    "codigo": "let senha = prompt('Digite a senha');\n\nwhile ( __________ ) {\n  senha = prompt('Senha errada. Digite novamente');\n}\n\nconsole.log('Acesso permitido');",
+    "enunciado": "Complete a condição para repetir enquanto a senha estiver errada. A senha correta é 1234.",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int senha;\n\n    printf(\"Digite a senha: \");\n    scanf(\"%d\", &senha);\n\n    while ( __________ ) {\n        printf(\"Senha errada. Digite novamente: \");\n        scanf(\"%d\", &senha);\n    }\n\n    printf(\"Acesso permitido\\n\");\n\n    return 0;\n}",
     "respostas": [
       "senha != 1234",
       "senha!=1234",
-      "senha !== 1234",
-      "senha!==1234"
+      "senha <> 1234",
+      "senha<>1234"
     ]
   },
   {
     "enunciado": "Complete a condição para continuar enquanto a idade for menor que 18.",
-    "codigo": "let idade = 12;\n\nwhile ( __________ ) {\n  console.log('Ainda é menor de idade');\n  idade++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int idade = 12;\n\n    while ( __________ ) {\n        printf(\"Idade atual: %d\\n\", idade);\n        idade++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "idade < 18",
       "idade<18",
@@ -91,7 +91,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 50 até 100, pulando de 10 em 10.",
-    "codigo": "let numero = 50;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero += 10;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 50;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero += 10;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 100",
       "numero<=100",
@@ -101,7 +101,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 100 até 0, diminuindo de 20 em 20.",
-    "codigo": "let numero = 100;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero -= 20;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 100;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero -= 20;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero >= 0",
       "numero>=0",
@@ -111,7 +111,7 @@
   },
   {
     "enunciado": "Complete a condição para executar enquanto o saldo for maior que zero.",
-    "codigo": "let saldo = 100;\n\nwhile ( __________ ) {\n  console.log('Comprando...');\n  saldo -= 20;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int saldo = 100;\n\n    while ( __________ ) {\n        printf(\"Comprando... Saldo atual: %d\\n\", saldo);\n        saldo -= 20;\n    }\n\n    return 0;\n}",
     "respostas": [
       "saldo > 0",
       "saldo>0",
@@ -121,7 +121,7 @@
   },
   {
     "enunciado": "Complete a condição para contar de 1 até 3 tentativas.",
-    "codigo": "let tentativa = 1;\n\nwhile ( __________ ) {\n  console.log('Tentativa ' + tentativa);\n  tentativa++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int tentativa = 1;\n\n    while ( __________ ) {\n        printf(\"Tentativa %d\\n\", tentativa);\n        tentativa++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "tentativa <= 3",
       "tentativa<=3",
@@ -131,7 +131,7 @@
   },
   {
     "enunciado": "Complete a condição para continuar enquanto a temperatura for menor que 30.",
-    "codigo": "let temperatura = 20;\n\nwhile ( __________ ) {\n  console.log('Aquecendo...');\n  temperatura += 2;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int temperatura = 20;\n\n    while ( __________ ) {\n        printf(\"Aquecendo... Temperatura: %d\\n\", temperatura);\n        temperatura += 2;\n    }\n\n    return 0;\n}",
     "respostas": [
       "temperatura < 30",
       "temperatura<30",
@@ -141,7 +141,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os múltiplos de 5 de 5 até 50.",
-    "codigo": "let numero = 5;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero += 5;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 5;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero += 5;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 50",
       "numero<=50",
@@ -151,7 +151,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir uma contagem regressiva de 5 até 1.",
-    "codigo": "let contador = 5;\n\nwhile ( __________ ) {\n  console.log(contador);\n  contador--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int contador = 5;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", contador);\n        contador--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "contador >= 1",
       "contador>=1",
@@ -160,22 +160,16 @@
     ]
   },
   {
-    "enunciado": "Complete a condição para repetir enquanto o usuário não digitar 'sair'.",
-    "codigo": "let comando = prompt('Digite um comando');\n\nwhile ( __________ ) {\n  comando = prompt('Digite outro comando');\n}\n\nconsole.log('Programa encerrado');",
+    "enunciado": "Complete a condição para repetir enquanto o usuário não digitar 0.",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int comando;\n\n    printf(\"Digite um número, ou 0 para sair: \");\n    scanf(\"%d\", &comando);\n\n    while ( __________ ) {\n        printf(\"Digite outro número, ou 0 para sair: \");\n        scanf(\"%d\", &comando);\n    }\n\n    printf(\"Programa encerrado\\n\");\n\n    return 0;\n}",
     "respostas": [
-      "comando != 'sair'",
-      "comando!='sair'",
-      "comando !== 'sair'",
-      "comando!=='sair'",
-      "comando != \"sair\"",
-      "comando!=\"sair\"",
-      "comando !== \"sair\"",
-      "comando!==\"sair\""
+      "comando != 0",
+      "comando!=0"
     ]
   },
   {
     "enunciado": "Complete a condição para dobrar o valor enquanto ele for menor que 100.",
-    "codigo": "let valor = 2;\n\nwhile ( __________ ) {\n  console.log(valor);\n  valor *= 2;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int valor = 2;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", valor);\n        valor *= 2;\n    }\n\n    return 0;\n}",
     "respostas": [
       "valor < 100",
       "valor<100",
@@ -185,7 +179,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 3 até 30, pulando de 3 em 3.",
-    "codigo": "let numero = 3;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero += 3;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 3;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero += 3;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 30",
       "numero<=30",
@@ -195,7 +189,7 @@
   },
   {
     "enunciado": "Complete a condição para continuar enquanto pontos for menor que 10.",
-    "codigo": "let pontos = 0;\n\nwhile ( __________ ) {\n  console.log('Pontuação: ' + pontos);\n  pontos += 2;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int pontos = 0;\n\n    while ( __________ ) {\n        printf(\"Pontuacao: %d\\n\", pontos);\n        pontos += 2;\n    }\n\n    return 0;\n}",
     "respostas": [
       "pontos < 10",
       "pontos<10",
@@ -205,7 +199,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 20 até 10.",
-    "codigo": "let numero = 20;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 20;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero >= 10",
       "numero>=10",
@@ -215,7 +209,7 @@
   },
   {
     "enunciado": "Complete a condição para repetir enquanto combustivel for maior que zero.",
-    "codigo": "let combustivel = 5;\n\nwhile ( __________ ) {\n  console.log('Carro andando');\n  combustivel--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int combustivel = 5;\n\n    while ( __________ ) {\n        printf(\"Carro andando. Combustivel: %d\\n\", combustivel);\n        combustivel--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "combustivel > 0",
       "combustivel>0",
@@ -225,7 +219,7 @@
   },
   {
     "enunciado": "Complete a condição para continuar enquanto vidas for maior que zero.",
-    "codigo": "let vidas = 3;\n\nwhile ( __________ ) {\n  console.log('Jogando...');\n  vidas--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int vidas = 3;\n\n    while ( __________ ) {\n        printf(\"Jogando... Vidas: %d\\n\", vidas);\n        vidas--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "vidas > 0",
       "vidas>0",
@@ -235,7 +229,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 1 até 100, pulando de 10 em 10.",
-    "codigo": "let numero = 1;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero += 10;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 1;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero += 10;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 100",
       "numero<=100",
@@ -245,7 +239,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 0 até 100, pulando de 25 em 25.",
-    "codigo": "let numero = 0;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero += 25;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 0;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero += 25;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 100",
       "numero<=100",
@@ -255,7 +249,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 30 até 0, diminuindo de 5 em 5.",
-    "codigo": "let numero = 30;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero -= 5;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 30;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero -= 5;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero >= 0",
       "numero>=0",
@@ -265,7 +259,7 @@
   },
   {
     "enunciado": "Complete a condição para repetir enquanto o estoque for maior que zero.",
-    "codigo": "let estoque = 8;\n\nwhile ( __________ ) {\n  console.log('Vendendo produto');\n  estoque--;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int estoque = 8;\n\n    while ( __________ ) {\n        printf(\"Vendendo produto. Estoque: %d\\n\", estoque);\n        estoque--;\n    }\n\n    return 0;\n}",
     "respostas": [
       "estoque > 0",
       "estoque>0",
@@ -275,7 +269,7 @@
   },
   {
     "enunciado": "Complete a condição para continuar enquanto energia for maior ou igual a 10.",
-    "codigo": "let energia = 50;\n\nwhile ( __________ ) {\n  console.log('Personagem andando');\n  energia -= 10;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int energia = 50;\n\n    while ( __________ ) {\n        printf(\"Personagem andando. Energia: %d\\n\", energia);\n        energia -= 10;\n    }\n\n    return 0;\n}",
     "respostas": [
       "energia >= 10",
       "energia>=10",
@@ -285,7 +279,7 @@
   },
   {
     "enunciado": "Complete a condição para exibir os números de 2 até 10.",
-    "codigo": "let numero = 2;\n\nwhile ( __________ ) {\n  console.log(numero);\n  numero++;\n}",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int numero = 2;\n\n    while ( __________ ) {\n        printf(\"%d\\n\", numero);\n        numero++;\n    }\n\n    return 0;\n}",
     "respostas": [
       "numero <= 10",
       "numero<=10",
@@ -294,17 +288,11 @@
     ]
   },
   {
-    "enunciado": "Complete a condição para executar enquanto resposta for diferente de 'sim'.",
-    "codigo": "let resposta = prompt('Você deseja continuar?');\n\nwhile ( __________ ) {\n  resposta = prompt('Digite sim para continuar');\n}\n\nconsole.log('Resposta aceita');",
+    "enunciado": "Complete a condição para executar enquanto resposta for diferente de 1. O valor 1 significa SIM.",
+    "codigo": "#include <stdio.h>\n\nint main() {\n    int resposta;\n\n    printf(\"Digite 1 para SIM: \");\n    scanf(\"%d\", &resposta);\n\n    while ( __________ ) {\n        printf(\"Resposta invalida. Digite 1 para SIM: \");\n        scanf(\"%d\", &resposta);\n    }\n\n    printf(\"Resposta aceita\\n\");\n\n    return 0;\n}",
     "respostas": [
-      "resposta != 'sim'",
-      "resposta!='sim'",
-      "resposta !== 'sim'",
-      "resposta!=='sim'",
-      "resposta != \"sim\"",
-      "resposta!=\"sim\"",
-      "resposta !== \"sim\"",
-      "resposta!==\"sim\""
+      "resposta != 1",
+      "resposta!=1"
     ]
   }
 ]
